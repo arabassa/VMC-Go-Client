@@ -1,0 +1,242 @@
+{
+  "ApiName": "CSP",
+  "ApiScheme": "https",
+  "ApiUrl": "console.cloud.vmware.com",
+  "Resources": {
+    "AutoEntitlementPolicies": {
+      "Path": "/csp/gateway/am/api/orgs/{orgId}/auto-entitlement-policies",
+      "Method": "GET",
+      "QueryParams": {
+        "pageLimit": "",
+        "pageStart": ""
+      }
+    },
+    "AutoEntitlementPoliciesByOrg": {
+      "Path": "/csp/gateway/am/api/orgs/{orgId}/auto-entitlement-policies/{policyId}",
+      "Method": "GET",
+      "QueryParams": null
+    },
+    "CspOpenIdConfiguration": {
+      "Path": "/csp/gateway/am/api/auth/.well-known/openid-configuration",
+      "Method": "GET",
+      "QueryParams": null
+    },
+    "CustomRole": {
+      "Path": "/csp/gateway/iam-roles-mgmt/api/orgs/{orgId}/custom-roles/{roleName}",
+      "Method": "GET",
+      "QueryParams": null
+    },
+    "CustomRoles": {
+      "Path": "/csp/gateway/iam-roles-mgmt/api/orgs/{orgId}/custom-roles",
+      "Method": "GET",
+      "QueryParams": null
+    },
+    "LoggedInMfaStatus": {
+      "Path": "/csp/gateway/iam/vmwid/api/principal/mfa/status",
+      "Method": "GET",
+      "QueryParams": null
+    },
+    "LoggedInUser": {
+      "Path": "/csp/gateway/am/api/loggedin/user",
+      "Method": "GET",
+      "QueryParams": null
+    },
+    "LoggedInUserGroups": {
+      "Path": "/csp/gateway/am/api/loggedin/user/orgs/{orgId}/groups",
+      "Method": "GET",
+      "QueryParams": null
+    },
+    "LoggedInUserInfo": {
+      "Path": "/csp/gateway/am/api/loggedin/user/orgs/{orgId}/info",
+      "Method": "GET",
+      "QueryParams": null
+    },
+    "LoggedInUserOrgs": {
+      "Path": "/csp/gateway/am/api/v2/loggedin/user/orgs",
+      "Method": "GET",
+      "QueryParams": {
+        "pageLimit": "15",
+        "pageStart": "1"
+      }
+    },
+    "LoggedInUserRoles": {
+      "Path": "/csp/gateway/am/api/loggedin/user/orgs/{orgId}/roles",
+      "Method": "GET",
+      "QueryParams": null
+    },
+    "LoggedInUserServiceRoles": {
+      "Path": "/csp/gateway/am/api/loggedin/user/orgs/{orgId}/service-roles",
+      "Method": "GET",
+      "QueryParams": null
+    },
+    "OpenIdUserInfo": {
+      "Path": "/csp/gateway/am/api/userinfo",
+      "Method": "GET",
+      "QueryParams": null
+    },
+    "Org": {
+      "Path": "/csp/gateway/am/api/orgs/{orgId}",
+      "Method": "GET",
+      "QueryParams": null
+    },
+    "OrgClients": {
+      "Path": "/csp/gateway/am/api/orgs/{orgId}/clients",
+      "Method": "GET",
+      "QueryParams": {
+        "pageLimit": "",
+        "pageStart": ""
+      }
+    },
+    "OrgGroupById": {
+      "Path": "/csp/gateway/am/api/orgs/{orgId}/groups/{groupId}",
+      "Method": "GET",
+      "QueryParams": null
+    },
+    "OrgGroupRolesById": {
+      "Path": "/csp/gateway/am/api/orgs/{orgId}/groups/{groupId}/roles",
+      "Method": "GET",
+      "QueryParams": null
+    },
+    "OrgGroups": {
+      "Path": "/csp/gateway/am/api/orgs/{orgId}/groups",
+      "Method": "GET",
+      "QueryParams": {
+        "pageLimit": "",
+        "pageStart": ""
+      }
+    },
+    "OrgInvitationById": {
+      "Path": "/csp/gateway/am/api/orgs/{orgId}/invitations/{userInvitationId}",
+      "Method": "GET",
+      "QueryParams": null
+    },
+    "OrgInvitations": {
+      "Path": "/csp/gateway/am/api/orgs/{orgId}/invitations",
+      "Method": "GET",
+      "QueryParams": null
+    },
+    "OrgLinkedIdp": {
+      "Path": "/csp/gateway/am/api/orgs/{orgId}/idp",
+      "Method": "GET",
+      "QueryParams": null
+    },
+    "OrgMemberOrgs": {
+      "Path": "/csp/gateway/am/api/orgs/{orgId}/member-orgs",
+      "Method": "GET",
+      "QueryParams": {
+        "pageLimit": "",
+        "pageStart": ""
+      }
+    },
+    "OrgNestedEnterpriseGroups": {
+      "Path": "/csp/gateway/am/api/orgs/{orgId}/groups/{groupId}/groups",
+      "Method": "GET",
+      "QueryParams": {
+        "pageLimit": "",
+        "pageStart": ""
+      }
+    },
+    "OrgOAuthAppById": {
+      "Path": "/csp/gateway/am/api/orgs/{orgId}/oauth-apps/{oauthAppId}",
+      "Method": "GET",
+      "QueryParams": null
+    },
+    "OrgOAuthApps": {
+      "Path": "/csp/gateway/am/api/orgs/{orgId}/oauth-apps",
+      "Method": "GET",
+      "QueryParams": {
+        "pageLimit": "",
+        "pageStart": ""
+      }
+    },
+    "OrgRoles": {
+      "Path": "/csp/gateway/am/api/orgs/{orgId}/roles",
+      "Method": "GET",
+      "QueryParams": null
+    },
+    "OrgSearchGroups": {
+      "Path": "/csp/gateway/am/api/orgs/{orgId}/groups-search",
+      "Method": "GET",
+      "QueryParams": {
+        "groupSearchTerm": ""
+      }
+    },
+    "OrgSubOrgs": {
+      "Path": "/csp/gateway/am/api/orgs/{orgId}/sub-orgs ",
+      "Method": "GET",
+      "QueryParams": {
+        "pageLimit": "",
+        "pageStart": ""
+      }
+    },
+    "OrgTrusts": {
+      "Path": "/csp/gateway/am/api/orgs/{orgId}/trusts",
+      "Method": "GET",
+      "QueryParams": {
+        "pageLimit": "",
+        "pageStart": ""
+      }
+    },
+    "OrgUsers": {
+      "Path": "/csp/gateway/am/api/v2/orgs/{orgId}/users",
+      "Method": "GET",
+      "QueryParams": {
+        "pageLimit": "",
+        "pageStart": ""
+      }
+    },
+    "OrgUsersInGroup": {
+      "Path": "/csp/gateway/am/api/orgs/{orgId}/groups/{groupId}/users",
+      "Method": "GET",
+      "QueryParams": {
+        "pageLimit": "",
+        "pageStart": ""
+      }
+    },
+    "PublicKey": {
+      "Path": "/csp/gateway/am/api/auth/token-public-key",
+      "Method": "GET",
+      "QueryParams": null
+    },
+    "User": {
+      "Path": "/csp/gateway/am/api/v2/users/{userId}/orgs/{orgId}/info",
+      "Method": "GET",
+      "QueryParams": null
+    },
+    "UserCustomRoles": {
+      "Path": "/csp/gateway/am/api/users/{userId}/orgs/{orgId}/custom-roles",
+      "Method": "GET",
+      "QueryParams": null
+    },
+    "UserGroups": {
+      "Path": "/csp/gateway/am/api/v2/users/{userId}/orgs/{orgId}/groups",
+      "Method": "GET",
+      "QueryParams": null
+    },
+    "UserGroupsByEmail": {
+      "Path": "/csp/gateway/am/api/users/{acct}/orgs/{orgId}/groups",
+      "Method": "GET",
+      "QueryParams": null
+    },
+    "UserRoles": {
+      "Path": "/csp/gateway/am/api/v2/users/{userId}/orgs/{orgId}/roles",
+      "Method": "GET",
+      "QueryParams": null
+    },
+    "UserServiceRoles": {
+      "Path": "/csp/gateway/am/api/v2/users/{userId}/orgs/{orgId}/service-roles",
+      "Method": "GET",
+      "QueryParams": null
+    }
+  },
+  "Params": {
+    "{acct}": "",
+    "{groupId}": "",
+    "{oauthAppId}": "",
+    "{orgId}": "",
+    "{policyId}": "",
+    "{roleName}": "",
+    "{userId}": "",
+    "{userInvitationId}": ""
+  }
+}

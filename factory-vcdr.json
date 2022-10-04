@@ -1,0 +1,72 @@
+{
+  "ApiName": "VCDR",
+  "ApiScheme": "https",
+  "ApiUrl": "vcdr-x-x-x-x.app.vcdr.vmware.com",
+  "Resources": {
+    "CloudFileSystem": {
+      "Path": "/api/vcdr/v1alpha/cloud-file-systems/{cloud_file_system_id}",
+      "Method": "GET",
+      "QueryParams": null
+    },
+    "CloudFileSystems": {
+      "Path": "/api/vcdr/v1alpha/cloud-file-systems",
+      "Method": "GET",
+      "QueryParams": null
+    },
+    "ProtectedSite": {
+      "Path": "/api/vcdr/v1alpha/cloud-file-systems/{cloud_file_system_id}/protected-sites/{protected_site_id}",
+      "Method": "GET",
+      "QueryParams": null
+    },
+    "ProtectedSites": {
+      "Path": "/api/vcdr/v1alpha/cloud-file-systems/{cloud_file_system_id}/protected-sites",
+      "Method": "GET",
+      "QueryParams": null
+    },
+    "ProtectedVms": {
+      "Path": "/api/vcdr/v1alpha/cloud-file-systems/{cloud_file_system_id}/protected-vms",
+      "Method": "GET",
+      "QueryParams": {
+        "cursor": "",
+        "limit": "0"
+      }
+    },
+    "ProtectionGroup": {
+      "Path": "/api/vcdr/v1alpha/cloud-file-systems/{cloud_file_system_id}/protection-groups/{protection_group_id}",
+      "Method": "GET",
+      "QueryParams": null
+    },
+    "ProtectionGroupSnapshot": {
+      "Path": "/api/vcdr/v1alpha/cloud-file-systems/{cloud_file_system_id}/protection-groups/{protection_group_id}/snapshots/{snapshot_id}",
+      "Method": "GET",
+      "QueryParams": null
+    },
+    "ProtectionGroupSnapshots": {
+      "Path": "/api/vcdr/v1alpha/cloud-file-systems/{cloud_file_system_id}/protection-groups/{protection_group_id}/snapshots",
+      "Method": "GET",
+      "QueryParams": null
+    },
+    "ProtectionGroups": {
+      "Path": "/api/vcdr/v1alpha/cloud-file-systems/{cloud_file_system_id}/protection-groups",
+      "Method": "GET",
+      "QueryParams": null
+    },
+    "RecoverySddcDetails": {
+      "Path": "/api/vcdr/v1alpha/recovery-sddcs/{recovery_sddc_id}",
+      "Method": "GET",
+      "QueryParams": null
+    },
+    "RecoverySddcs": {
+      "Path": "/api/vcdr/v1alpha/recovery-sddcs",
+      "Method": "GET",
+      "QueryParams": null
+    }
+  },
+  "Params": {
+    "{cloud_file_system_id}": "",
+    "{protected_site_id}": "",
+    "{protection_group_id}": "",
+    "{recovery_sddc_id}": "",
+    "{snapshot_id}": ""
+  }
+}
