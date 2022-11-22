@@ -5,22 +5,27 @@
   "Resources": {
     "AccountLink": {
       "Path": "/vmc/api/orgs/{org}/account-link",
-      "Method": "GET",
-      "QueryParams": null
+      "Method": [
+        "GET"
+      ]
     },
     "AwsSddcConnections": {
       "Path": "/vmc/api/orgs/{org}/account-link/sddc-connections",
-      "Method": "GET",
-      "QueryParams": null
+      "Method": [
+        "GET"
+      ]
     },
     "Cluster": {
       "Path": "/vmc/api/orgs/{org}/sddcs/{sddc}/primarycluster",
-      "Method": "GET",
-      "QueryParams": null
+      "Method": [
+        "GET"
+      ]
     },
     "CompatibleSubnets": {
       "Path": "/vmc/api/orgs/{org}/account-link/compatible-subnets",
-      "Method": "GET",
+      "Method": [
+        "GET"
+      ],
       "QueryParams": {
         "forceRefresh": "true",
         "linkedAccountId": ""
@@ -28,22 +33,27 @@
     },
     "ConnectedAccounts": {
       "Path": "/vmc/api/orgs/{org}/account-link/connected-accounts",
-      "Method": "GET",
-      "QueryParams": null
+      "Method": [
+        "GET"
+      ]
     },
     "Credential": {
       "Path": "/vmc/api/orgs/{org}/sddcs/{sddc}/addons/HCX/credentials/{name}",
-      "Method": "GET",
-      "QueryParams": null
+      "Method": [
+        "GET"
+      ]
     },
     "Credentials": {
       "Path": "/vmc/api/orgs/{org}/sddcs/{sddc}/addons/HCX/credentials",
-      "Method": "GET",
-      "QueryParams": null
+      "Method": [
+        "GET"
+      ]
     },
     "CustomerSupport": {
       "Path": "/vmc/api/customer-support/inputs",
-      "Method": "GET",
+      "Method": [
+        "GET"
+      ],
       "QueryParams": {
         "orgId": "",
         "userID": ""
@@ -51,19 +61,24 @@
     },
     "MsftLicensing": {
       "Path": "/vmc/api/orgs/{org}/tos",
-      "Method": "GET",
+      "Method": [
+        "GET"
+      ],
       "QueryParams": {
         "termsId": ""
       }
     },
     "NetworkConnChecker": {
       "Path": "/vmc/api/orgs/{org}/sddcs/{sddc}/networking/connectivity-tests",
-      "Method": "GET",
-      "QueryParams": null
+      "Method": [
+        "GET"
+      ]
     },
     "OfferInstances": {
       "Path": "/vmc/api/orgs/{org}/subscriptions/offer-instances",
-      "Method": "GET",
+      "Method": [
+        "GET"
+      ],
       "QueryParams": {
         "product": "",
         "product_type": "",
@@ -73,99 +88,123 @@
     },
     "Org": {
       "Path": "/vmc/api/orgs/{org}",
-      "Method": "GET",
-      "QueryParams": null
+      "Method": [
+        "GET"
+      ]
     },
     "OrgPaymentMethods": {
       "Path": "/vmc/api/orgs/{org}/payment-methods",
-      "Method": "GET",
-      "QueryParams": null
+      "Method": [
+        "GET"
+      ]
     },
     "OrgProviders": {
       "Path": "/vmc/api/orgs/{org}/providers",
-      "Method": "GET",
-      "QueryParams": null
+      "Method": [
+        "GET"
+      ]
     },
     "Orgs": {
       "Path": "/vmc/api/orgs",
-      "Method": "GET",
-      "QueryParams": null
+      "Method": [
+        "GET"
+      ]
     },
     "Products": {
       "Path": "/vmc/api/orgs/{org}/subscriptions/products",
-      "Method": "GET",
-      "QueryParams": null
+      "Method": [
+        "GET"
+      ]
     },
     "ProvisionSpec": {
       "Path": "/vmc/api/orgs/{org}/sddcs/provision-spec",
-      "Method": "GET",
-      "QueryParams": null
+      "Method": [
+        "GET"
+      ]
     },
     "Reservations": {
       "Path": "/vmc/api/orgs/{org}/reservations",
-      "Method": "GET",
-      "QueryParams": null
+      "Method": [
+        "GET"
+      ]
     },
     "Sddc": {
       "Path": "/vmc/api/orgs/{org}/sddcs/{sddc}",
-      "Method": "GET",
-      "QueryParams": null
+      "Method": [
+        "GET",
+        "POST",
+        "DELETE",
+        "PATCH"
+      ]
     },
     "Sddcs": {
       "Path": "/vmc/api/orgs/{org}/sddcs",
-      "Method": "GET",
-      "QueryParams": null
+      "Method": [
+        "GET"
+      ]
     },
     "ServiceQuotaRequest": {
       "Path": "/vmc/api/orgs/{org}/aws/resources/servicequotas/requests/{serviceQuotaRequestId}Id",
-      "Method": "GET",
-      "QueryParams": null
+      "Method": [
+        "GET"
+      ]
     },
     "ServiceQuotaRequests": {
       "Path": "/vmc/api/orgs/{org}/aws/resources/servicequotas/requests",
-      "Method": "GET",
-      "QueryParams": null
+      "Method": [
+        "GET"
+      ]
     },
     "StorageSpecs": {
       "Path": "/vmc/api/orgs/{org}/sddcs/{sddc}/clusters/{cluster}/esxs/{esx}/storage-spec",
-      "Method": "GET",
-      "QueryParams": null
+      "Method": [
+        "GET"
+      ]
     },
     "Subscription": {
       "Path": "/vmc/api/orgs/{org}/subscriptions/{subscription}",
-      "Method": "GET",
-      "QueryParams": null
+      "Method": [
+        "GET"
+      ]
     },
     "Subscriptions": {
       "Path": "/vmc/api/orgs/{org}/subscriptions",
-      "Method": "GET",
-      "QueryParams": null
+      "Method": [
+        "GET"
+      ]
     },
     "Task": {
       "Path": "/vmc/api/orgs/{org}/tasks/{task}",
-      "Method": "GET",
-      "QueryParams": null
+      "Method": [
+        "GET"
+      ]
     },
     "Tasks": {
       "Path": "/vmc/api/orgs/{org}/tasks",
-      "Method": "GET",
+      "Method": [
+        "GET"
+      ],
       "QueryParams": {
         "$filter": "(updated gt 2022-07-15)"
       }
     },
     "Tbrs": {
       "Path": "/vmc/api/orgs/{org}/tbrs/support-window",
-      "Method": "GET",
-      "QueryParams": null
+      "Method": [
+        "GET"
+      ]
     },
     "VsanClusterReconfigConstraints": {
       "Path": "/vmc/api/orgs/{org}/sddcs/{sddc}/clusters/{cluster}/config/constraints",
-      "Method": "GET",
-      "QueryParams": null
+      "Method": [
+        "GET"
+      ]
     },
     "VsanConfigConstraints": {
       "Path": "/vmc/api/orgs/{org}/storage/cluster-constraints",
-      "Method": "GET",
+      "Method": [
+        "GET"
+      ],
       "QueryParams": {
         "num_hosts": "10",
         "provider": "AWS"

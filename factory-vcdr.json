@@ -5,27 +5,33 @@
   "Resources": {
     "CloudFileSystem": {
       "Path": "/api/vcdr/v1alpha/cloud-file-systems/{cloud_file_system_id}",
-      "Method": "GET",
-      "QueryParams": null
+      "Method": [
+        "GET"
+      ]
     },
     "CloudFileSystems": {
       "Path": "/api/vcdr/v1alpha/cloud-file-systems",
-      "Method": "GET",
-      "QueryParams": null
+      "Method": [
+        "GET"
+      ]
     },
     "ProtectedSite": {
       "Path": "/api/vcdr/v1alpha/cloud-file-systems/{cloud_file_system_id}/protected-sites/{protected_site_id}",
-      "Method": "GET",
-      "QueryParams": null
+      "Method": [
+        "GET"
+      ]
     },
     "ProtectedSites": {
       "Path": "/api/vcdr/v1alpha/cloud-file-systems/{cloud_file_system_id}/protected-sites",
-      "Method": "GET",
-      "QueryParams": null
+      "Method": [
+        "GET"
+      ]
     },
     "ProtectedVms": {
       "Path": "/api/vcdr/v1alpha/cloud-file-systems/{cloud_file_system_id}/protected-vms",
-      "Method": "GET",
+      "Method": [
+        "GET"
+      ],
       "QueryParams": {
         "cursor": "",
         "limit": "0"
@@ -33,33 +39,39 @@
     },
     "ProtectionGroup": {
       "Path": "/api/vcdr/v1alpha/cloud-file-systems/{cloud_file_system_id}/protection-groups/{protection_group_id}",
-      "Method": "GET",
-      "QueryParams": null
+      "Method": [
+        "GET"
+      ]
     },
     "ProtectionGroupSnapshot": {
       "Path": "/api/vcdr/v1alpha/cloud-file-systems/{cloud_file_system_id}/protection-groups/{protection_group_id}/snapshots/{snapshot_id}",
-      "Method": "GET",
-      "QueryParams": null
+      "Method": [
+        "GET"
+      ]
     },
     "ProtectionGroupSnapshots": {
       "Path": "/api/vcdr/v1alpha/cloud-file-systems/{cloud_file_system_id}/protection-groups/{protection_group_id}/snapshots",
-      "Method": "GET",
-      "QueryParams": null
+      "Method": [
+        "GET"
+      ]
     },
     "ProtectionGroups": {
       "Path": "/api/vcdr/v1alpha/cloud-file-systems/{cloud_file_system_id}/protection-groups",
-      "Method": "GET",
-      "QueryParams": null
+      "Method": [
+        "GET"
+      ]
     },
     "RecoverySddcDetails": {
       "Path": "/api/vcdr/v1alpha/recovery-sddcs/{recovery_sddc_id}",
-      "Method": "GET",
-      "QueryParams": null
+      "Method": [
+        "GET"
+      ]
     },
     "RecoverySddcs": {
       "Path": "/api/vcdr/v1alpha/recovery-sddcs",
-      "Method": "GET",
-      "QueryParams": null
+      "Method": [
+        "GET"
+      ]
     }
   },
   "Params": {

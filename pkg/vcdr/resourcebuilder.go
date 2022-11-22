@@ -10,18 +10,20 @@ const name = "VCDR"
 const scheme = "https"
 const url = "vcdr-x-x-x-x.app.vcdr.vmware.com"
 
+var readMethods = []string{"GET"}
+
 var resources = map[string]core.Endpoint{
-	"CloudFileSystems":         {"/api/vcdr/v1alpha/cloud-file-systems", "GET", initType(new(CloudFileSystemsResponse)), queryparams["CloudFileSystems"]},
-	"CloudFileSystem":          {"/api/vcdr/v1alpha/cloud-file-systems/{cloud_file_system_id}", "GET", initType(new(CloudFileSystemDetails)), queryparams["CloudFileSystem"]},
-	"ProtectedSites":           {"/api/vcdr/v1alpha/cloud-file-systems/{cloud_file_system_id}/protected-sites", "GET", initType(new(GetProtectedSitesResponse)), queryparams["ProtectedSites"]},
-	"ProtectedSite":            {"/api/vcdr/v1alpha/cloud-file-systems/{cloud_file_system_id}/protected-sites/{protected_site_id}", "GET", initType(new(ProtectedSiteDetails)), queryparams["ProtectedSite"]},
-	"ProtectedVms":             {"/api/vcdr/v1alpha/cloud-file-systems/{cloud_file_system_id}/protected-vms", "GET", initType(new(GetProtectedVirtualMachinesResponse)), queryparams["ProtectedVms"]},
-	"ProtectionGroups":         {"/api/vcdr/v1alpha/cloud-file-systems/{cloud_file_system_id}/protection-groups", "GET", initType(new(GetProtectionGroupsResponse)), queryparams["ProtectedGroups"]},
-	"ProtectionGroup":          {"/api/vcdr/v1alpha/cloud-file-systems/{cloud_file_system_id}/protection-groups/{protection_group_id}", "GET", initType(new(ProtectionGroupDetails)), queryparams["ProtectedGroup"]},
-	"ProtectionGroupSnapshots": {"/api/vcdr/v1alpha/cloud-file-systems/{cloud_file_system_id}/protection-groups/{protection_group_id}/snapshots", "GET", initType(new(GetProtectionGroupsSnapshotsResponse)), queryparams["ProtectionGroupSnapshots"]},
-	"ProtectionGroupSnapshot":  {"/api/vcdr/v1alpha/cloud-file-systems/{cloud_file_system_id}/protection-groups/{protection_group_id}/snapshots/{snapshot_id}", "GET", initType(new(ProtectionGroupSnapshotDetails)), queryparams["ProtectionGroupSnapshotDetails"]},
-	"RecoverySddcs":            {"/api/vcdr/v1alpha/recovery-sddcs", "GET", initType(new(GetRecoverySddcResponse)), queryparams["RecoverySddcs"]},
-	"RecoverySddcDetails":      {"/api/vcdr/v1alpha/recovery-sddcs/{recovery_sddc_id}", "GET", initType(new(RecoverySddcDetails)), queryparams["RecoverySddcDetails"]},
+	"CloudFileSystems":         {"/api/vcdr/v1alpha/cloud-file-systems", readMethods, initType(new(CloudFileSystemsResponse)), queryparams["CloudFileSystems"]},
+	"CloudFileSystem":          {"/api/vcdr/v1alpha/cloud-file-systems/{cloud_file_system_id}", readMethods, initType(new(CloudFileSystemDetails)), queryparams["CloudFileSystem"]},
+	"ProtectedSites":           {"/api/vcdr/v1alpha/cloud-file-systems/{cloud_file_system_id}/protected-sites", readMethods, initType(new(GetProtectedSitesResponse)), queryparams["ProtectedSites"]},
+	"ProtectedSite":            {"/api/vcdr/v1alpha/cloud-file-systems/{cloud_file_system_id}/protected-sites/{protected_site_id}", readMethods, initType(new(ProtectedSiteDetails)), queryparams["ProtectedSite"]},
+	"ProtectedVms":             {"/api/vcdr/v1alpha/cloud-file-systems/{cloud_file_system_id}/protected-vms", readMethods, initType(new(GetProtectedVirtualMachinesResponse)), queryparams["ProtectedVms"]},
+	"ProtectionGroups":         {"/api/vcdr/v1alpha/cloud-file-systems/{cloud_file_system_id}/protection-groups", readMethods, initType(new(GetProtectionGroupsResponse)), queryparams["ProtectedGroups"]},
+	"ProtectionGroup":          {"/api/vcdr/v1alpha/cloud-file-systems/{cloud_file_system_id}/protection-groups/{protection_group_id}", readMethods, initType(new(ProtectionGroupDetails)), queryparams["ProtectedGroup"]},
+	"ProtectionGroupSnapshots": {"/api/vcdr/v1alpha/cloud-file-systems/{cloud_file_system_id}/protection-groups/{protection_group_id}/snapshots", readMethods, initType(new(GetProtectionGroupsSnapshotsResponse)), queryparams["ProtectionGroupSnapshots"]},
+	"ProtectionGroupSnapshot":  {"/api/vcdr/v1alpha/cloud-file-systems/{cloud_file_system_id}/protection-groups/{protection_group_id}/snapshots/{snapshot_id}", readMethods, initType(new(ProtectionGroupSnapshotDetails)), queryparams["ProtectionGroupSnapshotDetails"]},
+	"RecoverySddcs":            {"/api/vcdr/v1alpha/recovery-sddcs", readMethods, initType(new(GetRecoverySddcResponse)), queryparams["RecoverySddcs"]},
+	"RecoverySddcDetails":      {"/api/vcdr/v1alpha/recovery-sddcs/{recovery_sddc_id}", readMethods, initType(new(RecoverySddcDetails)), queryparams["RecoverySddcDetails"]},
 }
 
 //params to set variables and construct our API resources

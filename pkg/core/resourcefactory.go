@@ -12,7 +12,7 @@ import (
 
 type Endpoint struct {
 	Path        string
-	Method      string
+	Method      []string
 	Resource    reflect.Type      `json:"-"`
 	QueryParams map[string]string `json:",omitempty"`
 }
@@ -135,8 +135,8 @@ func LoadFactory(filename string, resources map[string]reflect.Type) ResourceFac
 
 //ListMethods is a helper method for pretty print available commands of an API/factory in the cli
 func ListMethods(rf ResourceFactory) {
-	fmt.Println("Method", "  Resource")
-	fmt.Println("======   ===================")
+	fmt.Println("Method", "    Resource")
+	fmt.Println("======     ===================")
 	for a, b := range rf.Resources {
 		var params string
 		re := regexp.MustCompile(`{([^}]+)}`)
@@ -146,7 +146,7 @@ func ListMethods(rf ResourceFactory) {
 			params += i[0] + " "
 		}
 		if len(params) > 0 {
-			fmt.Println("Params: ", params)
+			fmt.Println("Params:   ", params)
 		}
 		fmt.Println()
 	}
