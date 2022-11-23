@@ -147,19 +147,21 @@ func LoadFactory(filename string, resources map[string]reflect.Type) ResourceFac
 
 // ListMethods is a helper method for pretty print available commands of an API/factory in the cli
 func ListMethods(rf ResourceFactory) {
-	fmt.Println("Method", "    Resource")
-	fmt.Println("======     ===================")
+	fmt.Println(rf.ApiName, "Resource List")
+	fmt.Println("==================")
 	for a, b := range rf.Resources {
 		var params string
 		re := regexp.MustCompile(`{([^}]+)}`)
 		match := re.FindAllStringSubmatch(b.Path, -1)
-		fmt.Println(b.Method, "    ", a)
+		fmt.Println("Resource:   ", a)
+		fmt.Println("Methods:    ", b.Method)
 		for _, i := range match {
 			params += i[0] + " "
 		}
 		if len(params) > 0 {
-			fmt.Println("Params:   ", params)
+			fmt.Println("Params:     ", params)
 		}
+		fmt.Println("API path:    " + rf.Resources[a].Path)
 		fmt.Println()
 	}
 }

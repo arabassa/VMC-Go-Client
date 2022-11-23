@@ -26,7 +26,7 @@ var resources = map[string]core.Endpoint{
 	"VsanConfigConstraints":          {"/vmc/api/orgs/{org}/storage/cluster-constraints", readMethods, initType(new(VsanConfigConstraints)), queryparams["VsanConfigConstraints"]},
 	"VsanClusterReconfigConstraints": {"/vmc/api/orgs/{org}/sddcs/{sddc}/clusters/{cluster}/config/constraints", readMethods, initType(new(VsanClusterReconfigConstraints)), queryparams["VsanClusterReconfigConstraints"]},
 	"StorageSpecs":                   {"/vmc/api/orgs/{org}/sddcs/{sddc}/clusters/{cluster}/esxs/{esx}/storage-spec", readMethods, initType(new(VsanDiskgroupMapping)), queryparams["StorageSpecs"]},
-	"ServiceQuotaRequest":            {"/vmc/api/orgs/{org}/aws/resources/servicequotas/requests/{serviceQuotaRequestId}Id", readMethods, initType(new(ServiceQuotaRequest)), queryparams["ServiceQuotaRequest"]},
+	"ServiceQuotaRequest":            {"/vmc/api/orgs/{org}/aws/resources/servicequotas/requests/{serviceQuotaRequestId}", readMethods, initType(new(ServiceQuotaRequest)), queryparams["ServiceQuotaRequest"]},
 	"ServiceQuotaRequests":           {"/vmc/api/orgs/{org}/aws/resources/servicequotas/requests", readMethods, initType(new(ServiceQuotaRequests)), queryparams["ServiceQuotaRequests"]},
 	"AccountLink":                    {"/vmc/api/orgs/{org}/account-link", readMethods, initType(new(AccountLink)), queryparams["AccountLink"]},
 	"ConnectedAccounts":              {"/vmc/api/orgs/{org}/account-link/connected-accounts", readMethods, initType(new(AwsCustomerConnectedAccounts)), queryparams["ConnectedAccounts"]},

@@ -22,6 +22,7 @@ func main() {
 
 	if climode {
 		c := utils.RunCli()
+
 		switch c["api"] {
 		case "CSP":
 			factory := core.LoadFactory("factory-csp.json", csp.CSPResourceMap)
@@ -30,6 +31,8 @@ func main() {
 				fmt.Println(utils.Marshal(factory.Get(c["resource"])))
 			case "LIST":
 				core.ListMethods(factory)
+			default:
+				fmt.Println("Invalid method for", factory.ApiName, "API")
 			}
 		case "VCDR":
 			factory := core.LoadFactory("factory-vcdr.json", vcdr.VCDRResourceMap)
@@ -38,6 +41,8 @@ func main() {
 				fmt.Println(utils.Marshal(factory.Get(c["resource"])))
 			case "LIST":
 				core.ListMethods(factory)
+			default:
+				fmt.Println("Invalid method for", factory.ApiName, "API")
 			}
 		case "VMC":
 			factory := core.LoadFactory("factory-vmc.json", vmc.VMCResourceMap)
@@ -50,6 +55,8 @@ func main() {
 				fmt.Println(utils.Marshal(factory.Delete(c["resource"])))
 			case "LIST":
 				core.ListMethods(factory)
+			default:
+				fmt.Println("Invalid method for", factory.ApiName, "API")
 			}
 		}
 	}
