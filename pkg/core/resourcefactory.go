@@ -23,8 +23,8 @@ type ResourceFactory struct {
 	ApiUrl    string
 	Resources map[string]Endpoint
 	Params    map[string]string
-	Get       func(string) interface{}
-	Post      func(string, []byte) interface{}
+	Get       func(string) interface{}         `json:"-"`
+	Post      func(string, []byte) interface{} `json:"-"`
 }
 
 /*

@@ -131,19 +131,19 @@
     "Sddc": {
       "Path": "/vmc/api/orgs/{org}/sddcs/{sddc}",
       "Method": [
-        "GET",
-        "POST",
-        "DELETE",
-        "PATCH"
+        "GET"
       ]
     },
     "Sddcs": {
       "Path": "/vmc/api/orgs/{org}/sddcs",
       "Method": [
-        "GET"
+        "GET",
+        "POST",
+        "DELETE",
+        "PATCH"
       ],
       "QueryParams": {
-        "validateOnly": "false"
+        "validateOnly": "true"
       }
     },
     "ServiceQuotaRequest": {
