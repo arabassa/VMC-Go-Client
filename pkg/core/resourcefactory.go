@@ -25,6 +25,7 @@ type ResourceFactory struct {
 	Params    map[string]string
 	Get       func(string) interface{}         `json:"-"`
 	Post      func(string, []byte) interface{} `json:"-"`
+	Delete    func(string) interface{}         `json:"-"`
 }
 
 /*
@@ -120,6 +121,8 @@ func LoadFactory(filename string, resources map[string]reflect.Type) ResourceFac
 	rf.Get = func(r string) interface{} { return Get(rf, r) }
 	//factory Poster function, includes JSON data for the body
 	rf.Post = func(r string, d []byte) interface{} { return Post(rf, r, d) }
+	//factory Deleter function
+	rf.Delete = func(r string) interface{} { return Delete(rf, r) }
 
 	bytes, err := ioutil.ReadFile(filename)
 

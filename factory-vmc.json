@@ -131,16 +131,15 @@
     "Sddc": {
       "Path": "/vmc/api/orgs/{org}/sddcs/{sddc}",
       "Method": [
-        "GET"
+        "GET",
+        "DELETE"
       ]
     },
     "Sddcs": {
       "Path": "/vmc/api/orgs/{org}/sddcs",
       "Method": [
         "GET",
-        "POST",
-        "DELETE",
-        "PATCH"
+        "POST"
       ],
       "QueryParams": {
         "validateOnly": "true"

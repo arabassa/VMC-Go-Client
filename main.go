@@ -9,7 +9,7 @@ import (
 	"vmc-go-client/pkg/vmc"
 )
 
-var buildfactories = false
+var buildfactories = true
 var climode = true
 
 func main() {
@@ -46,6 +46,8 @@ func main() {
 				fmt.Println(utils.Marshal(factory.Get(c["resource"])))
 			case "POST":
 				fmt.Println(utils.Marshal(factory.Post((c["resource"]), utils.LoadJsonFile("post-data.json"))))
+			case "DELETE":
+				fmt.Println(utils.Marshal(factory.Delete(c["resource"])))
 			case "LIST":
 				core.ListMethods(factory)
 			}

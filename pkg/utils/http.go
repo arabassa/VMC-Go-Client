@@ -80,6 +80,40 @@ func DoPostHttp(url string, data []byte) (*http.Response, string) {
 	return resp, string(body)
 }
 
+// DoDeleteHttp authenticates against CSP and performs HTTP request returning the response
+func DoDeleteHttp(url string) (*http.Response, string) {
+	req, err := http.NewRequest("DELETE", url, nil)
+	if err != nil {
+		log.Printf("New Request Failed: %s", err)
+		return nil, ""
+	}
+
+	cli := Auth()
+	addHttpHeader(req, "csp-auth-token", cli.AccessToken)          //CSP
+	addHttpHeader(req, "authorization", "Bearer "+cli.AccessToken) //some VMC implements
+	addHttpHeader(req, "x-da-access-token", cli.AccessToken)       //VCDR
+
+	resp, err := cli.Client.Do(req)
+	log.Println("HTTP DELETE " + url)
+	if err != nil {
+		log.Printf("Request Failed: %s", err)
+		return nil, ""
+	}
+	defer resp.Body.Close()
+
+	body, err := io.ReadAll(resp.Body)
+	if err != nil {
+		log.Println(err)
+	}
+
+	log.Println("HTTP Response Status:", resp.StatusCode, http.StatusText(resp.StatusCode))
+	if resp.StatusCode >= 400 {
+		fmt.Println(string(body))
+		panic("Non 2XX HTTP Response: Exiting API Client.")
+	}
+	return resp, string(body)
+}
+
 // addHttpHeader is a helper method to easily add HTTP headers to a request
 func addHttpHeader(r *http.Request, k string, v string) *http.Request {
 	r.Header.Set(k, v)
