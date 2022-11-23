@@ -11,7 +11,7 @@ const scheme = "https"
 const url = "vmc.vmware.com"
 
 var readMethods = []string{"GET"}
-var allMethods =  []string{"GET","POST", "DELETE", "PATCH"}
+var allMethods = []string{"GET", "POST", "DELETE", "PATCH"}
 
 var resources = map[string]core.Endpoint{
 	"Org":                            {"/vmc/api/orgs/{org}", readMethods, initType(new(Org)), queryparams["Org"]},
@@ -19,8 +19,8 @@ var resources = map[string]core.Endpoint{
 	"OrgPaymentMethods":              {"/vmc/api/orgs/{org}/payment-methods", readMethods, initType(new(PaymentMethodInfos)), queryparams["OrgPaymentMethods"]},
 	"OrgProviders":                   {"/vmc/api/orgs/{org}/providers", readMethods, initType(new(AwsCloudProviders)), queryparams["OrgProviders"]},
 	"Reservations":                   {"/vmc/api/orgs/{org}/reservations", readMethods, initType(new(Reservations)), queryparams["Reservations"]},
-	"Sddcs":                          {"/vmc/api/orgs/{org}/sddcs", readMethods, initType(new(Sddcs)), queryparams["Sddcs"]},
-	"Sddc":                           {"/vmc/api/orgs/{org}/sddcs/{sddc}", allMethods, initType(new(Sddc)), queryparams["Sddc"]},
+	"Sddcs":                          {"/vmc/api/orgs/{org}/sddcs", allMethods, initType(new(Sddcs)), queryparams["Sddcs"]},
+	"Sddc":                           {"/vmc/api/orgs/{org}/sddcs/{sddc}", readMethods, initType(new(Sddc)), queryparams["Sddc"]},
 	"ProvisionSpec":                  {"/vmc/api/orgs/{org}/sddcs/provision-spec", readMethods, initType(new(ProvisionSpec)), queryparams["ProvisionSpec"]},
 	"Cluster":                        {"/vmc/api/orgs/{org}/sddcs/{sddc}/primarycluster", readMethods, initType(new(Cluster)), queryparams["Cluster"]},
 	"VsanConfigConstraints":          {"/vmc/api/orgs/{org}/storage/cluster-constraints", readMethods, initType(new(VsanConfigConstraints)), queryparams["VsanConfigConstraints"]},
@@ -46,7 +46,7 @@ var resources = map[string]core.Endpoint{
 	"NetworkConnChecker":             {"/vmc/api/orgs/{org}/sddcs/{sddc}/networking/connectivity-tests", readMethods, initType(new(ConnectivityValidationGroup)), queryparams["NetworkConnChecker"]},
 }
 
-//params to set variables and construct our API resources
+// params to set variables and construct our API resources
 var params = map[string]string{
 	"{org}":                   "",
 	"{sddc}":                  "",
@@ -58,9 +58,10 @@ var params = map[string]string{
 	"{task}":                  "",
 }
 
-//queryparams for specific resource types
+// queryparams for specific resource types
 var queryparams = map[string]map[string]string{
 	"VsanConfigConstraints": {"num_hosts": "10", "provider": "AWS"},
+	"Sddcs":                 {"validateOnly": "true"},
 	"CompatibleSubnets":     {"linkedAccountId": "", "forceRefresh": "true"},
 	"CustomerSupport":       {"orgId": "", "userID": ""},
 	"MsftLicensing":         {"termsId": ""},

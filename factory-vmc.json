@@ -141,7 +141,10 @@
       "Path": "/vmc/api/orgs/{org}/sddcs",
       "Method": [
         "GET"
-      ]
+      ],
+      "QueryParams": {
+        "validateOnly": "false"
+      }
     },
     "ServiceQuotaRequest": {
       "Path": "/vmc/api/orgs/{org}/aws/resources/servicequotas/requests/{serviceQuotaRequestId}Id",

@@ -7,7 +7,7 @@ import (
 )
 
 var apis = "[CSP, VMC, VCDR]"
-var methods = "[LIST, GET]"
+var methods = "[LIST, GET, POST]"
 
 var (
 	api      = flag.String("api", "", "API type:    "+apis)
