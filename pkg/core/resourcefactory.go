@@ -12,7 +12,7 @@ import (
 
 type Endpoint struct {
 	Path        string
-	Method      string
+	Method      []string
 	Resource    reflect.Type      `json:"-"`
 	QueryParams map[string]string `json:",omitempty"`
 }
@@ -23,12 +23,15 @@ type ResourceFactory struct {
 	ApiUrl    string
 	Resources map[string]Endpoint
 	Params    map[string]string
-	Get       func(string) interface{} `json:"-"`
+	Get       func(string) interface{}         `json:"-"`
+	Post      func(string, []byte) interface{} `json:"-"`
 }
 
-/*FindResource receives an API resource friendly name and returns the constructed link with needed variables/IDs and queryparams.
-It will also return the reflect Type of the interface so the GET response can be asserted and the correspondent struct data accessed*/
-func FindResource(r string, rf ResourceFactory) (*url.URL, reflect.Type) {
+/*
+FindResource receives an API resource friendly name and returns the constructed link with needed variables/IDs and queryparams.
+It will also return the reflect Type of the interface so the GET response can be asserted and the correspondent struct data accessed
+*/
+func FindResource(r string, rf ResourceFactory, enforce bool) (*url.URL, reflect.Type) {
 	var e Endpoint
 
 	for name, values := range rf.Resources {
@@ -47,14 +50,16 @@ func FindResource(r string, rf ResourceFactory) (*url.URL, reflect.Type) {
 		Path:   fillUrl(e.Path, rf.Params),
 	}
 
-	validateUrl(u.String(), rf)
+	if enforce {
+		validateUrl(u.String(), rf)
+	}
 
 	n := addQueryParams(&u, r, rf)
 
 	return n, e.Resource
 }
 
-//fillUrl substitutes the required API params in the URL
+// fillUrl substitutes the required API params in the URL
 func fillUrl(path string, params map[string]string) string {
 	for ids, vals := range params {
 		if vals != "" {
@@ -64,7 +69,7 @@ func fillUrl(path string, params map[string]string) string {
 	return path
 }
 
-//validateUrl checks that parameters needed for the API URL construction are satisfied
+// validateUrl checks that parameters needed for the API URL construction are satisfied
 func validateUrl(s string, rf ResourceFactory) {
 	var sb strings.Builder
 
@@ -94,7 +99,7 @@ func validateUrl(s string, rf ResourceFactory) {
 	}
 }
 
-//addQueryParams will add trailing query params to the URL based on the resource type
+// addQueryParams will add trailing query params to the URL based on the resource type
 func addQueryParams(u *url.URL, t string, rf ResourceFactory) *url.URL {
 	newUrl := *u
 	values := newUrl.Query()
@@ -107,10 +112,14 @@ func addQueryParams(u *url.URL, t string, rf ResourceFactory) *url.URL {
 	return &newUrl
 }
 
-//LoadFactory will load the factory struct from the JSON file and make it available to process all the defined resources
+// LoadFactory will load the factory struct from the JSON file and make it available to process all the defined resources
 func LoadFactory(filename string, resources map[string]reflect.Type) ResourceFactory {
 	var rf ResourceFactory
+
+	//factory Getter function
 	rf.Get = func(r string) interface{} { return Get(rf, r) }
+	//factory Poster function, includes JSON data for the body
+	rf.Post = func(r string, d []byte) interface{} { return Post(rf, r, d) }
 
 	bytes, err := ioutil.ReadFile(filename)
 
@@ -133,10 +142,10 @@ func LoadFactory(filename string, resources map[string]reflect.Type) ResourceFac
 	return rf
 }
 
-//ListMethods is a helper method for pretty print available commands of an API/factory in the cli
+// ListMethods is a helper method for pretty print available commands of an API/factory in the cli
 func ListMethods(rf ResourceFactory) {
-	fmt.Println("Method", "  Resource")
-	fmt.Println("======   ===================")
+	fmt.Println("Method", "    Resource")
+	fmt.Println("======     ===================")
 	for a, b := range rf.Resources {
 		var params string
 		re := regexp.MustCompile(`{([^}]+)}`)
@@ -146,7 +155,7 @@ func ListMethods(rf ResourceFactory) {
 			params += i[0] + " "
 		}
 		if len(params) > 0 {
-			fmt.Println("Params: ", params)
+			fmt.Println("Params:   ", params)
 		}
 		fmt.Println()
 	}

@@ -44,6 +44,8 @@ func main() {
 			switch c["method"] {
 			case "GET":
 				fmt.Println(utils.Marshal(factory.Get(c["resource"])))
+			case "POST":
+				fmt.Println(utils.Marshal(factory.Post((c["resource"]), utils.LoadJsonFile("post-data.json"))))
 			case "LIST":
 				core.ListMethods(factory)
 			}

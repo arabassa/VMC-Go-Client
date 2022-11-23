@@ -1,0 +1,15 @@
+{
+    "account_link_config": {
+		"delay_account_link": true
+	},
+    "name": "SDDC",
+    "connected_account_id": "None",
+    "vpc_cidr": "10.10.0.0/16",
+    "provider": "AWS",
+    "sddc_type": "1NODE",
+    "sso_domain": "vmc.local",
+    "num_hosts": 1,
+    "deployment_type": "SingleAZ",
+    "vxlan_subnet": "192.168.0.0/24",
+    "region": "ap-southeast-2"
+}
