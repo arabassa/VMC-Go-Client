@@ -7,11 +7,11 @@ import (
 )
 
 var apis = "[CSP, VMC, VCDR]"
-var methods = "[LIST, GET, POST]"
+var methods = "[LIST, GET, POST, DELETE]"
 
 var (
-	api      = flag.String("api", "", "API type:    "+apis)
-	method   = flag.String("method", "", "HTTP method: "+methods)
+	api      = flag.String("api", "", "API type: "+apis)
+	method   = flag.String("method", "", "List API resources or HTTP method: "+methods)
 	resource = flag.String("resource", "", "Resource type")
 )
 

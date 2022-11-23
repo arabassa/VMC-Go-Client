@@ -46,6 +46,8 @@ func main() {
 				fmt.Println(utils.Marshal(factory.Get(c["resource"])))
 			case "POST":
 				fmt.Println(utils.Marshal(factory.Post((c["resource"]), utils.LoadJsonFile("post-data.json"))))
+			case "DELETE":
+				fmt.Println(utils.Marshal(factory.Delete(c["resource"])))
 			case "LIST":
 				core.ListMethods(factory)
 			}
