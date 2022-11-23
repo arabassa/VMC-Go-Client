@@ -9,7 +9,7 @@ import (
 	"vmc-go-client/pkg/vmc"
 )
 
-var buildfactories = true
+var buildfactories = false
 var climode = true
 
 func main() {
