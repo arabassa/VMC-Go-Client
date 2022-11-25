@@ -9,7 +9,7 @@ import (
 
 // Get will GET a factory API resource identified by its friendly name returning an empty interface which can be asserted to its struct type
 func Get(rf ResourceFactory, s string) interface{} {
-	u, t := FindResource(s, rf, true)
+	u, t := FindResource(s, rf, true, "GET")
 
 	r := reflect.New(t.Elem()).Interface()
 
