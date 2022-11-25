@@ -53,7 +53,7 @@ var resources = map[string]core.Endpoint{
 	"CustomRoles":                  {"/csp/gateway/iam-roles-mgmt/api/orgs/{orgId}/custom-roles", readMethods, initType(new(ResultsDtoCustomRoleDto)), queryparams["CustomRoles"]},
 }
 
-//params to set variables and construct API resources
+// params to set variables and construct API resources
 var params = map[string]string{
 	"{orgId}":            "",
 	"{userId}":           "",
@@ -65,7 +65,7 @@ var params = map[string]string{
 	"{groupId}":          "",
 }
 
-//queryparams for specific resource types
+// queryparams for specific resource types
 var queryparams = map[string]map[string]string{
 	"LoggedInUserOrgs":          {"pageStart": "1", "pageLimit": "15"},
 	"OrgOAuthApps":              {"pageStart": "", "pageLimit": ""},

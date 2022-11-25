@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/url"
+	"os"
 	"reflect"
 	"regexp"
 	"strings"
@@ -32,7 +33,7 @@ type ResourceFactory struct {
 FindResource receives an API resource friendly name and returns the constructed link with needed variables/IDs and queryparams.
 It will also return the reflect Type of the interface so the GET response can be asserted and the correspondent struct data accessed
 */
-func FindResource(r string, rf ResourceFactory, enforce bool) (*url.URL, reflect.Type) {
+func FindResource(r string, rf ResourceFactory, enforceValidation bool, m string) (*url.URL, reflect.Type) {
 	var e Endpoint
 
 	for name, values := range rf.Resources {
@@ -42,7 +43,21 @@ func FindResource(r string, rf ResourceFactory, enforce bool) (*url.URL, reflect
 	}
 
 	if e.Resource == nil {
-		panic("Exiting API Client. Unknown resource type: " + r)
+		fmt.Println("Exiting API Client. Unknown resource type: " + r + " in " + rf.ApiName + " API")
+		os.Exit(0)
+	}
+
+	for _, method := range e.Method {
+		if method == m {
+			var found bool = true
+			if method != m {
+				fmt.Println("Exiting API Client. Invalid HTTP method for resource " + r + " in " + rf.ApiName + " API")
+				os.Exit(0)
+			}
+			if found {
+				break
+			}
+		}
 	}
 
 	u := url.URL{
@@ -51,7 +66,7 @@ func FindResource(r string, rf ResourceFactory, enforce bool) (*url.URL, reflect
 		Path:   fillUrl(e.Path, rf.Params),
 	}
 
-	if enforce {
+	if enforceValidation {
 		validateUrl(u.String(), rf)
 	}
 
@@ -95,8 +110,8 @@ func validateUrl(s string, rf ResourceFactory) {
 	}
 
 	if len(missing) > 0 {
-		fmt.Println("Review or update your API Factory json for missing Params")
-		panic("Error: Exiting API Client.")
+		fmt.Println("Exiting API Client. Review or update your API Factory json for missing Params")
+		os.Exit(0)
 	}
 }
 
@@ -147,19 +162,21 @@ func LoadFactory(filename string, resources map[string]reflect.Type) ResourceFac
 
 // ListMethods is a helper method for pretty print available commands of an API/factory in the cli
 func ListMethods(rf ResourceFactory) {
-	fmt.Println("Method", "    Resource")
-	fmt.Println("======     ===================")
+	fmt.Println(rf.ApiName, "Resource List")
+	fmt.Println("==================")
 	for a, b := range rf.Resources {
 		var params string
 		re := regexp.MustCompile(`{([^}]+)}`)
 		match := re.FindAllStringSubmatch(b.Path, -1)
-		fmt.Println(b.Method, "    ", a)
+		fmt.Println("Resource:   ", a)
+		fmt.Println("Methods:    ", b.Method)
 		for _, i := range match {
 			params += i[0] + " "
 		}
 		if len(params) > 0 {
-			fmt.Println("Params:   ", params)
+			fmt.Println("Params:     ", params)
 		}
+		fmt.Println("API path:    " + rf.Resources[a].Path)
 		fmt.Println()
 	}
 }

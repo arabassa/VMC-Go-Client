@@ -10,11 +10,11 @@ import (
 
 const (
 	libraryVersion = "0.1"
-	userAgent      = "vmware-emea-se-automaton/" + libraryVersion
+	UserAgent      = "vmc-go-client/" + libraryVersion
 	mediaType      = "application/json"
 )
 
-//Client struct to define connection details and credentials
+// Client struct to define connection details and credentials
 type Client struct {
 	CspUrl       string `json:"csp_url"`
 	Port         string `json:"port"`
@@ -24,7 +24,7 @@ type Client struct {
 	Client       *http.Client
 }
 
-//NewClient creates a new API Client
+// NewClient creates a new API Client
 func NewClient(clientConfig Client) *Client {
 
 	if clientConfig.Client == nil {
@@ -44,7 +44,7 @@ func NewClient(clientConfig Client) *Client {
 	return c
 }
 
-//LoadConfig loads Client config from json file
+// LoadConfig loads Client config from json file
 func LoadConfig(filename string) *Client {
 
 	var appConfig Client

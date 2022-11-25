@@ -146,7 +146,7 @@
       }
     },
     "ServiceQuotaRequest": {
-      "Path": "/vmc/api/orgs/{org}/aws/resources/servicequotas/requests/{serviceQuotaRequestId}Id",
+      "Path": "/vmc/api/orgs/{org}/aws/resources/servicequotas/requests/{serviceQuotaRequestId}",
       "Method": [
         "GET"
       ]

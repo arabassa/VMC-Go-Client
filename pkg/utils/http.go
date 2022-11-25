@@ -52,7 +52,7 @@ func DoPostHttp(url string, data []byte) (*http.Response, string) {
 
 	fmt.Println(req.Body)
 	cli := Auth()
-	addHttpHeader(req, "content-type", "application/json")         //media content-type
+	addHttpHeader(req, "content-type", mediaType)                  //media content-type
 	addHttpHeader(req, "csp-auth-token", cli.AccessToken)          //CSP
 	addHttpHeader(req, "authorization", "Bearer "+cli.AccessToken) //some VMC implements
 	addHttpHeader(req, "x-da-access-token", cli.AccessToken)       //VCDR
