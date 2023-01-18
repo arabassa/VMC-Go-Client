@@ -15,19 +15,18 @@ import (
 var apis = "[CSP, VMC, VCDR]"
 var methods = "[LIST, GET, POST, DELETE]"
 
-var (
-	api      = flag.String("api", "", "API type: "+apis)
-	method   = flag.String("method", "", "List API resources or HTTP method: "+methods)
-	resource = flag.String("resource", "", "Resource type")
-)
-
 func RunCli() {
+
+	flag.CommandLine = flag.NewFlagSet(os.Args[0], flag.ExitOnError)
+
+	api := flag.String("api", "", "API type: "+apis)
+	method := flag.String("method", "", "List API resources or HTTP method: "+methods)
+	resource := flag.String("resource", "", "Resource type")
 
 	flag.Parse()
 
 	if len(os.Args) == 1 {
 		flag.Usage()
-
 	}
 
 	var cliConf = map[string]string{
